@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar</title>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="sidebar" th:fragment="sidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/dashboard}">
+            <div class="sidebar-brand-text mx-3">SOA</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/dashboard}">
+                <i class="fas fa-columns"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            API's
+        </div>
+
+        <!-- Movies -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#navitem-movies" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-film"></i>
+                <span>Movies</span>
+            </a>
+            <div id="navitem-movies" class="collapse" aria-labelledby="Movies API" data-parent="#sidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Movies API</h6>
+                    <a class="collapse-item" th:href="@{/dashboard/api/movies}">
+                        <i class="fas fa-bars"></i>  Movies
+                    </a>
+                    <a class="collapse-item" th:href="@{/dashboard/api/movies/new}">
+                        <i class="fas fa-plus"></i>  New Movie
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Products -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#navitem-products" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-box-open"></i>
+                <span>Products</span>
+            </a>
+            <div id="navitem-products" class="collapse" aria-labelledby="Products API" data-parent="#sidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Products API</h6>
+                    <a class="collapse-item" th:href="@{/dashboard/api/products}">
+                        <i class="fas fa-bars"></i>  Products
+                    </a>
+                    <a class="collapse-item" href=""> <!-- TODO -->
+                        <i class="fas fa-plus"></i>  New Product
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- To do list -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#navitem-todolist" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="far fa-list-alt"></i>
+                <span>  To Do list</span>
+            </a>
+            <div id="navitem-todolist" class="collapse" aria-labelledby="To Do List API" data-parent="#sidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">To Do List API</h6>
+                    <a class="collapse-item" th:href="@{/dashboard/api/todolist}">
+                        <i class="fas fa-bars"></i>  To Do list
+                    </a>
+                    <a class="collapse-item" href=""> <!-- TODO -->
+                        <i class="fas fa-plus"></i>  New To do item
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- F1 teams -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#navitem-f1teams" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-flag-checkered"></i>
+                <span>F1 Teams</span>
+            </a>
+            <div id="navitem-f1teams" class="collapse" aria-labelledby="F1 Teams API" data-parent="#sidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">F1 Teams API</h6>
+                    <a class="collapse-item" th:href="@{/dashboard/api/f1teams}">
+                        <i class="fas fa-bars"></i>  F1 Teams
+                    </a>
+                    <a class="collapse-item" href=""> <!-- TODO -->
+                        <i class="fas fa-plus"></i>  New F1 Team
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+</body>
+</html>

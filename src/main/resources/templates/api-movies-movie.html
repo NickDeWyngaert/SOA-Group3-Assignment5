@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SOA · Movies API</title>
+    <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+</head>
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div th:insert="fragments/sidebar :: sidebar"></div>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <h1 class="h3 mb-0 text-gray-800">API · Movies</h1>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h2 class="h3 mb-2 text-gray-800">Movie: <span th:text="${movie.title}"></span></h2>
+                    <p class="mb-4">Page with information about this movie</p>
+
+                    <!-- About & Details -->
+                    <div class="row">
+
+                        <!-- About -->
+                        <div class="col-lg-6 mb-4">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">About</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p th:text="${movie.about}"></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Details -->
+                        <div class="col-lg-6 mb-4">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Details</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>
+                                        <span th:text="${movie.title}" class="font-weight-bold"></span>, a movie directed by <span th:text="${movie.director}" class="font-weight-bold"></span> was launched on <span th:text="${movie.release}" class="font-weight-bold"></span>.<br>
+                                        This <span th:text="${movie.genre}" class="font-weight-bold"></span> movie lasts <span th:text="${movie.duration}" class="font-weight-bold"></span> minutes.
+                                    </p>
+                                    <p class="mb-0">
+                                        <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/update'}">
+                                            <button type="button" class="btn btn-warning">
+                                                Edit
+                                            </button>
+                                        </a>
+                                        <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/delete'}">
+                                            <button type="button" class="btn btn-danger">
+                                                Delete
+                                            </button>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Actions -->
+                    <!--<div class="row">
+
+                        <div class="col-lg-6 mb-4">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Actions</h6>
+                                </div>
+                                <div class="card-body">
+                                    <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/update'}">
+                                        <button type="button" class="btn btn-warning">
+                                            Edit
+                                        </button>
+                                    </a>
+                                    <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/delete'}">
+                                        <button type="button" class="btn btn-danger">
+                                            Delete
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>-->
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <div th:insert="fragments/footer :: footer"></div>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scripts -->
+    <div th:insert="fragments/scripts :: scripts"></div>
+    
+</body>
+</html>
