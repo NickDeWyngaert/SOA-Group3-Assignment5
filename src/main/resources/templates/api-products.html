@@ -36,10 +36,61 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h2 class="h3 mb-2 text-gray-800">Title</h2>
-                <p class="mb-4">Description</p>
+                <h2 class="h3 mb-2 text-gray-800">Overview of products</h2>
+                <p class="mb-4">This page gives an overview about products.</p>
+                <a th:href="@{/dashboard/api/products/new}">
+                    <button type="button" class="btn btn-success">
+                        <i class="fas fa-plus"></i>  New Product
+                    </button>
+                </a>
 
-                <!-- START HERE -->
+                <!-- Table -->
+                <div class="card shadow mb-4" style="margin-top: 1em;">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Products</h6>
+                    </div>
+                    <div class="card-body" th:switch="${#lists.size(Products)}">
+                        <p th:case="'0'">There are no Products available!</p>
+                        <div th:case="*" class="table-responsive">
+                            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0" style="width: inherit !important;">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="product : ${products}">
+                                    <td th:text="${product.name}"></td>
+                                    <td th:text="${product.description}"></td>
+                                    <td th:text="${'€ '+product.price}"></td>
+
+                                    <td style="width: 1% !important; white-space: nowrap !important;">
+                                        <a th:href="@{'/dashboard/api/products/' + ${product.id}}">
+                                            <button type="button" class="btn btn-info">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a th:href="@{'/dashboard/api/products/' + ${product.id} + '/update'}">
+                                            <button type="button" class="btn btn-warning">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </a>
+                                        <a th:href="@{'/dashboard/api/products/' + ${product.id} + '/delete'}">
+                                            <button type="button" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <!-- /.container-fluid -->
