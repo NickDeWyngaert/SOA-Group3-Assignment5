@@ -17,7 +17,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div th:insert="fragments/sidebar :: sidebar"></div>
+        <div th:replace="fragments/sidebar :: sidebar"></div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -38,29 +38,97 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <!--<div class="d-sm-flex align-items-center justify-content-between mb-4">
                         
-                    </div>
+                    </div>-->
 
                     <!-- Content Row -->
                     <div class="row">
 
+                        <!-- Assignment -->
                         <div class="col-lg-6 mb-4">
-
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Assignment</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laboru numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium  optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum.
-                                    </p>
+                                    <p class="card-subtitle font-weight-bold mb-1">Opdracht 5: User Interface</p>
                                     <p class="mb-0">
-                                        Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi iusto libero magni deleniti quod quam consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. Quaerat provident commodi consectetur veniam similique ad earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam quasi aliquam eligendi, placeat qui corporis!
+                                        Voor deze opdracht wordt er gevraagd om een user interface te maken waar je uw services aanroept.
+                                        Natuurlijk wordt er verwacht dat je gebruik maakt van je ESB of API management platform.
+                                        De deadline voor deze opdracht is tot de verdediging van je project.
                                     </p>
                                 </div>
                             </div>
+                        </div>
 
+                        <!-- Available API's -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">ESB & API's</h6>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Movies</td>
+                                                <td>
+                                                    <kbd>GET, POST</kbd> <br>
+                                                    <kbd>GET, PUT, DEL</kbd>
+                                                </td>
+                                                <td>
+                                                    <kbd>http://localhost:8290/movies</kbd> <br>
+                                                    <kbd>http://localhost:8290/movies/{id}</kbd>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Products</td>
+                                                <td>
+                                                    <kbd>GET</kbd> <br>
+                                                    <kbd>POST</kbd> <br>
+                                                    <kbd>GET</kbd> <br>
+                                                    <kbd>PUT</kbd> <br>
+                                                    <kbd>DEL</kbd>
+                                                </td>
+                                                <td>
+                                                    <kbd>http://localhost:8290/products/all</kbd> <br>
+                                                    <kbd>http://localhost:8290/products/create</kbd> <br>
+                                                    <kbd>http://localhost:8290/products/{id}</kbd> <br>
+                                                    <kbd>http://localhost:8290/products/edit/{id}</kbd> <br>
+                                                    <kbd>http://localhost:8290/products/delete/{id}</kbd>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>To Do List</td>
+                                                <td>
+                                                    <kbd>GET, POST</kbd> <br>
+                                                    <kbd>PUT, DEL</kbd>
+                                                </td>
+                                                <td>
+                                                    <kbd>http://localhost:8290/todo</kbd> <br>
+                                                    <kbd>http://localhost:8290/todo/{id}</kbd>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>F1 Teams</td>
+                                                <td>
+                                                    <kbd>GET</kbd> <br>
+                                                    <kbd>POST</kbd> <br>
+                                                    <kbd>PUT</kbd> <br>
+                                                    <kbd>DEL</kbd>
+                                                </td>
+                                                <td>
+                                                    <kbd>http://localhost:8290/f1</kbd> <br>
+                                                    <kbd>http://localhost:8290/f1/create</kbd> <br>
+                                                    <kbd>http://localhost:8290/f1/update/{id}</kbd> <br>
+                                                    <kbd>http://localhost:8290/f1/delete/{id}</kbd>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -72,7 +140,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <div th:insert="fragments/footer :: footer"></div>
+            <div th:replace="fragments/footer :: footer"></div>
             <!-- End of Footer -->
 
         </div>
@@ -82,7 +150,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scripts -->
-    <div th:insert="fragments/scripts :: scripts"></div>
+    <div th:replace="fragments/scripts :: scripts"></div>
     
 </body>
 </html>

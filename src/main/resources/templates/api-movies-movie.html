@@ -17,7 +17,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div th:insert="fragments/sidebar :: sidebar"></div>
+        <div th:replace="fragments/sidebar :: sidebar"></div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -37,7 +37,9 @@
 
                     <!-- Page Heading -->
                     <h2 class="h3 mb-2 text-gray-800">Movie: <span th:text="${movie.title}"></span></h2>
-                    <p class="mb-4">Page with information about this movie</p>
+                    <p class="mb-4">
+                        <a th:href="@{/dashboard/api/movies}">&larr; Back to overview movies</a>
+                    </p>
 
                     <!-- About & Details -->
                     <div class="row">
@@ -69,14 +71,20 @@
                                         This <span th:text="${movie.genre}" class="font-weight-bold"></span> movie lasts <span th:text="${movie.duration}" class="font-weight-bold"></span> minutes.
                                     </p>
                                     <p class="mb-0">
-                                        <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/update'}">
-                                            <button type="button" class="btn btn-warning">
-                                                Edit
+                                        <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/update'}" class="text-decoration-none">
+                                            <button type="button" class="btn btn-warning btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="far fa-edit"></i>
+                                                </span>
+                                                <span class="text">Edit</span>
                                             </button>
                                         </a>
-                                        <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/delete'}">
-                                            <button type="button" class="btn btn-danger">
-                                                Delete
+                                        <a th:href="@{'/dashboard/api/movies/' + ${movie.id} + '/delete'}" class="text-decoration-none">
+                                            <button type="button" class="btn btn-danger btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                                <span class="text">Delete</span>
                                             </button>
                                         </a>
                                     </p>
@@ -121,7 +129,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <div th:insert="fragments/footer :: footer"></div>
+            <div th:replace="fragments/footer :: footer"></div>
             <!-- End of Footer -->
 
         </div>
@@ -131,7 +139,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scripts -->
-    <div th:insert="fragments/scripts :: scripts"></div>
+    <div th:replace="fragments/scripts :: scripts"></div>
     
 </body>
 </html>
