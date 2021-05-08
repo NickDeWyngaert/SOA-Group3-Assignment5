@@ -1,6 +1,7 @@
 package soa.dashboard.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -20,7 +21,7 @@ public class MoviesAPIService {
     private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(10); // Dit hoeft niet
 
     @Autowired
-    public MoviesAPIService(WebClient moviesAPI){ this.moviesAPI = moviesAPI; }
+    public MoviesAPIService(@Qualifier("moviesAPI") WebClient moviesAPI){ this.moviesAPI = moviesAPI; }
 
     public List<Movie> read() { return this.requestAllMovies().getData(); }
     private DataMovie requestAllMovies(){
