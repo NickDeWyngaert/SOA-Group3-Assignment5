@@ -10,6 +10,8 @@
     <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+    <!-- Extra css for table -->
+    <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
 </head>
 <body id="page-top">
 
@@ -17,7 +19,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <div th:insert="fragments/sidebar :: sidebar"></div>
+    <div th:replace="fragments/sidebar :: sidebar"></div>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -36,11 +38,64 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h2 class="h3 mb-2 text-gray-800">Title</h2>
-                <p class="mb-4">Description</p>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div>
+                        <h2 class="h3 mb-2 text-gray-800">To Do API</h2>
+                        <p class="mb-4">Here you find an overview of ToDo items</p>
+                    </div>
+                    <a th:href="@{/dashboard/api/todolist/new}" class="text-decoration-none">
+                        <button type="button" class="btn btn-success btn-icon-split">
+                            <span class="icon text-white-50">
+                               <i class="fas fa-plus"></i>
+                            </span>
+                            <span class="text">New ToDo item</span>
+                        </button>
+                    </a>
+                </div>
 
-                <!-- START HERE -->
 
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">ToDo items</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>task</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="todoitem : ${todolist}">
+                                    <td th:text="${todoitem.name}"></td>
+                                    <td th:text="${todoitem.course}"></td>
+                                    <td th:text="${todoitem.task}"></td>
+                                    <td style="width: 1% !important; white-space: nowrap !important;">
+                                        <a th:href="@{'/dashboard/api/todolist/' + ${todoitem.id}}" class="text-decoration-none">
+                                            <button type="button" class="btn btn-info btn-circle">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                        </a>
+                                        <a th:href="@{'/dashboard/api/todolist/' + ${todoitem.id} + '/update'}" class="text-decoration-none">
+                                            <button type="button" class="btn btn-warning btn-circle">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </a>
+                                        <a th:href="@{'/dashboard/api/todolist/' + ${todoitem.id} + '/delete'}" class="text-decoration-none">
+                                            <button type="button" class="btn btn-danger btn-circle">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.container-fluid -->
 
@@ -48,7 +103,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <div th:insert="fragments/footer :: footer"></div>
+        <div th:replace="fragments/footer :: footer"></div>
         <!-- End of Footer -->
 
     </div>
@@ -58,7 +113,11 @@
 <!-- End of Page Wrapper -->
 
 <!-- Scripts -->
-<div th:insert="fragments/scripts :: scripts"></div>
+<div th:replace="fragments/scripts :: scripts"></div>
+<!--EXtra scripts -->
+<script th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+<script th:src="@{/js/demo/datatables-demo.js}"></script>
 
 </body>
 </html>

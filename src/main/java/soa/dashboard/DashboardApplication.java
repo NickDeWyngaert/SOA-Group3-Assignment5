@@ -23,7 +23,7 @@ public class DashboardApplication {
     public WebClient productsAPI(){ return WebClient.create("http://localhost:8290/products"); }
 
     @Bean
-    public WebClient todolistAPI(){ return WebClient.create("http://localhost:8290/todo"); }
+    public WebClient todolistAPI(){ return WebClient.create("http://localhost:8290/todoitems"); }
 
     @Bean
     public WebClient f1teamsAPI(){ return WebClient.create("http://localhost:8290/f1"); }
