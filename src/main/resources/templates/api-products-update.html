@@ -42,7 +42,7 @@
                 <!-- product form -->
                 <div class="row">
                     <div class="col-lg-6 mb-4">
-                        <form th:method="post" th:action="@{'/dashboard/api/product/' + ${id} + '/update'}" th:object="${product}">
+                        <form th:method="post" th:action="@{'/dashboard/api/products/' + ${id} + '/update'}" th:object="${product}">
                             <div class="mb-3 form-check" style="display: none;">
                                 <label for="name" class="form-label">name*</label>
                                 <input th:field="*{name}" type="text" class="form-control" required th:value="${product.name}">

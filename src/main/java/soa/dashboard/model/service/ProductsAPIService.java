@@ -1,6 +1,7 @@
 package soa.dashboard.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import soa.dashboard.model.dto.*;
@@ -20,13 +21,13 @@ public class ProductsAPIService {
     @Autowired
     public ProductsAPIService(WebClient productAPI){ this.productAPI = productAPI; }
 
-    public List<Product> read() { return this.requestAllProducts().getData(); }
-    private DataProduct requestAllProducts(){
+    public List<Product> read() { return this.requestAllProducts(); }
+    private List requestAllProducts(){
         return productAPI
                 .get()
-                .uri("/")
+                .uri("/all")
                 .retrieve()
-                .bodyToMono(DataProduct.class)
+                .bodyToMono(new ParameterizedTypeReference<List>() {})
                 .block(REQUEST_TIMEOUT);
     }
 
@@ -40,12 +41,13 @@ public class ProductsAPIService {
                 .block(REQUEST_TIMEOUT);
     }
 
+
     public ProductDTO create(ProductDTO productDTO) { return requestCreateProduct(productDTO); }
     private ProductDTO requestCreateProduct(ProductDTO productDTO){
         return productAPI
                 .post()
-                .uri("/")
-                .body(Mono.just(new OnlyProductObject(productDTO)), OnlyMovieObject.class)
+                .uri("/create")
+                .body(Mono.just(productDTO), ProductDTO.class)
                 .retrieve()
                 .bodyToMono(ProductDTO.class)
                 .block(REQUEST_TIMEOUT);
@@ -55,8 +57,8 @@ public class ProductsAPIService {
     private ProductDTO requestUpdateProduct(int id, ProductDTO productDTO){
         return productAPI
                 .put()
-                .uri("/" + id)
-                .body(Mono.just(new OnlyProductObject(productDTO)), OnlyProductObject.class)
+                .uri("/edit/" + id)
+                .body(Mono.just(productDTO), ProductDTO.class)
                 .retrieve()
                 .bodyToMono(ProductDTO.class)
                 .block(REQUEST_TIMEOUT);
@@ -66,7 +68,7 @@ public class ProductsAPIService {
     private void requestDeleteProduct(int id){
         productAPI
                 .delete()
-                .uri("/" + id)
+                .uri("/delete/" + id)
                 .retrieve()
                 .bodyToMono(Void.class)
                 .block(REQUEST_TIMEOUT);

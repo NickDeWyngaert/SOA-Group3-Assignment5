@@ -88,7 +88,7 @@ public class ProductsAPIController {
         */
         ProductDTO gotfromhtml = new ProductDTO(name,description,price);
         ProductDTO receivedProduct = this.service.update(id,gotfromhtml);
-        return "redirect:/dashboard/api/products/" + id;
+        return "redirect:/dashboard/api/products/";
     }
 
 
@@ -98,7 +98,7 @@ public class ProductsAPIController {
     @GetMapping("/{id}/delete")
     public String deleteMovie(@PathVariable int id){
         this.service.delete(id);
-        return "redirect:/dashboard/api/product";
+        return "redirect:/dashboard/api/products";
     }
 
 
