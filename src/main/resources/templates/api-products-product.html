@@ -17,7 +17,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <div th:insert="fragments/sidebar :: sidebar"></div>
+    <div th:replace="fragments/sidebar :: sidebar"></div>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -68,14 +68,20 @@
                                     <span th:text="${product.price}" class="font-weight-bold"></span><br>
                                 </p>
                                 <p class="mb-0">
-                                    <a th:href="@{'/dashboard/api/products/' + ${product.id} + '/update'}">
-                                        <button type="button" class="btn btn-warning">
-                                            Edit
+                                    <a th:href="@{'/dashboard/api/products/' + ${product.id} + '/update'}" class="text-decoration-none">
+                                        <button type="button" class="btn btn-warning btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="far fa-edit"></i>
+                                                </span>
+                                            <span class="text">Edit</span>
                                         </button>
                                     </a>
-                                    <a th:href="@{'/dashboard/api/products/' + ${product.id} + '/delete'}">
-                                        <button type="button" class="btn btn-danger">
-                                            Delete
+                                    <a th:href="@{'/dashboard/api/products/' + ${product.id} + '/delete'}" class="text-decoration-none">
+                                        <button type="button" class="btn btn-danger btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-trash"></i>
+                                                </span>
+                                            <span class="text">Delete</span>
                                         </button>
                                     </a>
                                 </p>
@@ -95,7 +101,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <div th:insert="fragments/footer :: footer"></div>
+        <div th:replace="fragments/footer :: footer"></div>
         <!-- End of Footer -->
 
     </div>
@@ -105,7 +111,7 @@
 <!-- End of Page Wrapper -->
 
 <!-- Scripts -->
-<div th:insert="fragments/scripts :: scripts"></div>
+<div th:replace="fragments/scripts :: scripts"></div>
 
 </body>
 </html>

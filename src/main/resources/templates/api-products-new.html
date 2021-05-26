@@ -17,7 +17,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <div th:insert="fragments/sidebar :: sidebar"></div>
+    <div th:replace="fragments/sidebar :: sidebar"></div>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -70,7 +70,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <div th:insert="fragments/footer :: footer"></div>
+        <div th:replace="fragments/footer :: footer"></div>
         <!-- End of Footer -->
 
     </div>
@@ -80,7 +80,7 @@
 <!-- End of Page Wrapper -->
 
 <!-- Scripts -->
-<div th:insert="fragments/scripts :: scripts"></div>
+<div th:replace="fragments/scripts :: scripts"></div>
 
 </body>
 </html>
