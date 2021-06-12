@@ -39,14 +39,15 @@
 
                     <!-- Page Heading -->
                     <!--<div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        
+
                     </div>-->
 
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Assignment -->
+                        <!-- Assignment & ESB -->
                         <div class="col-lg-6 mb-4">
+                            <!-- Assignment -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Assignment</h6>
@@ -60,6 +61,17 @@
                                     </p>
                                 </div>
                             </div>
+                            <!-- ESB -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Enterprise Service Bus (ESB)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="mb-0">
+                                        <strong>Standaard Endpoint:</strong> <kbd>http://localhost:8290</kbd>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Available API's -->
@@ -70,56 +82,62 @@
                                 </div>
                                 <div class="card-body">
                                     <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Resources</th>
+                                                <th>HTTP Methods</th>
+                                                <th>ESB URIs</th>
+                                            </tr>
+                                        </thead>
                                         <tbody>
                                             <tr>
                                                 <td>Movies</td>
                                                 <td>
-                                                    <kbd>GET, POST</kbd> <br>
-                                                    <kbd>GET, PUT, DEL</kbd>
+                                                    <kbd class="text-success">GET</kbd> <kbd class="text-warning">POST</kbd> <br>
+                                                    <kbd class="text-success">GET</kbd> <kbd class="text-primary">PUT</kbd> <kbd class="text-danger">DEL</kbd>
                                                 </td>
                                                 <td>
-                                                    <kbd>http://localhost:8290/movies</kbd> <br>
-                                                    <kbd>http://localhost:8290/movies/{id}</kbd>
+                                                    <kbd>/movies</kbd> <br>
+                                                    <kbd>/movies/{id}</kbd>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Products</td>
                                                 <td>
-                                                    <kbd>GET</kbd> <br>
-                                                    <kbd>POST</kbd> <br>
-                                                    <kbd>GET</kbd> <br>
-                                                    <kbd>PUT</kbd> <br>
-                                                    <kbd>DEL</kbd>
+                                                    <kbd class="text-success">GET</kbd> <br>
+                                                    <kbd class="text-warning">POST</kbd> <br>
+                                                    <kbd class="text-success">GET</kbd> <br>
+                                                    <kbd class="text-primary">PUT</kbd> <br>
+                                                    <kbd class="text-danger">DEL</kbd>
                                                 </td>
                                                 <td>
-                                                    <kbd>http://localhost:8290/products/all</kbd> <br>
-                                                    <kbd>http://localhost:8290/products/create</kbd> <br>
-                                                    <kbd>http://localhost:8290/products/{id}</kbd> <br>
-                                                    <kbd>http://localhost:8290/products/edit/{id}</kbd> <br>
-                                                    <kbd>http://localhost:8290/products/delete/{id}</kbd>
+                                                    <kbd>/products/all</kbd> <br>
+                                                    <kbd>/products/create</kbd> <br>
+                                                    <kbd>/products/{id}</kbd> <br>
+                                                    <kbd>/products/edit/{id}</kbd> <br>
+                                                    <kbd>/products/delete/{id}</kbd>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>To Do List</td>
                                                 <td>
-                                                    <kbd>GET, POST</kbd> <br>
-                                                    <kbd>PUT, DEL</kbd>
+                                                    <kbd class="text-success">GET</kbd> <kbd class="text-warning">POST</kbd> <br>
+                                                    <kbd class="text-success">GET</kbd> <kbd class="text-primary">PUT</kbd> <kbd class="text-danger">DEL</kbd>
                                                 </td>
                                                 <td>
-                                                    <kbd>http://localhost:8290/todoitems</kbd> <br>
-                                                    <kbd>http://localhost:8290/todoitems/{id}</kbd>
+                                                    <kbd>/todoitems</kbd> <br>
+                                                    <kbd>/todoitems/{id}</kbd>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>F1 Teams</td>
                                                 <td>
-                                                    <kbd>GET, POST</kbd> <br>
-                                                    <kbd>PUT, DEL</kbd>
-
+                                                    <kbd class="text-success">GET</kbd> <kbd class="text-warning">POST</kbd> <br>
+                                                    <kbd class="text-success">GET</kbd> <kbd class="text-primary">PUT</kbd> <kbd class="text-danger">DEL</kbd>
                                                 </td>
                                                 <td>
-                                                    <kbd>http://localhost:8290/f1</kbd> <br>
-                                                    <kbd>http://localhost:8290/f1/{id}</kbd>
+                                                    <kbd>/f1_teams</kbd> <br>
+                                                    <kbd>/f1_teams/{id}</kbd>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -148,7 +166,6 @@
 
     <!-- Scripts -->
     <div th:replace="fragments/scripts :: scripts"></div>
-    
+
 </body>
 </html>
-
