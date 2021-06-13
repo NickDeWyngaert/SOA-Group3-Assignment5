@@ -28,7 +28,7 @@
 
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <h1 class="h3 mb-0 text-gray-800">API · To Do List</h1>
+                <h1 class="h3 mb-0 text-gray-800">API · To Do list</h1>
             </nav>
             <!-- End of Topbar -->
 
@@ -44,15 +44,15 @@
                     <div class="col-lg-6 mb-4">
                         <form th:method="post" th:action="@{'/dashboard/api/todolist/' + ${id} + '/update'}" th:object="${todoitem}">
                             <div class="mb-3 form-check">
-                                <label for="name" class="form-label">Name*</label>
+                                <label for="name" class="form-label">Name:</label>
                                 <input th:field="*{name}" type="text" class="form-control" required>
                             </div>
                             <div class="mb-3 form-check">
-                                <label for="course" class="form-label">Course*</label>
+                                <label for="course" class="form-label">Course:</label>
                                 <input th:field="*{course}" type="text" class="form-control" required>
                             </div>
                             <div class="mb-3 form-check">
-                                <label for="task" class="form-label">task*</label>
+                                <label for="task" class="form-label">Task:</label>
                                 <input th:field="*{task}" type="text" class="form-control" required>
                             </div>
                             <div class="mb-3 form-check">

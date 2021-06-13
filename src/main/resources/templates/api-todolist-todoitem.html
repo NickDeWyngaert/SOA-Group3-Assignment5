@@ -28,7 +28,7 @@
 
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <h1 class="h3 mb-0 text-gray-800">API · ToDo</h1>
+                <h1 class="h3 mb-0 text-gray-800">API · ToDo list</h1>
             </nav>
             <!-- End of Topbar -->
 
@@ -36,7 +36,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h2 class="h3 mb-2 text-gray-800">To Do item: <span th:text="${todoitem.name}"></span></h2>
+                <h2 class="h3 mb-2 text-gray-800">To Do item</h2>
                 <p class="mb-4">
                     <a th:href="@{/dashboard/api/todolist}">&larr; Back to ToDo overview</a>
                 </p>
@@ -49,7 +49,7 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">About</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Name</h6>
                             </div>
                             <div class="card-body">
                                 <p th:text="${todoitem.name}"></p>
@@ -67,8 +67,10 @@
                             </div>
                             <div class="card-body">
                                 <p>
-                                    <span th:text="${todoitem.name}" class="font-weight-bold"></span> <span th:text="${todoitem.course}" class="font-weight-bold"></span>
-                                    <span th:text="${todoitem.task}" class="font-weight-bold"></span>
+                                    The task is for the course: <span th:text="${todoitem.course}" class="font-weight-bold"></span>
+                                </p>
+                                <p>
+                                    The task that needs to be done: <span th:text="${todoitem.task}" class="font-weight-bold"></span>
                                 </p>
                                 <p class="mb-0">
                                     <a th:href="@{'/dashboard/api/todolist/' + ${todoitem.id} + '/update'}" class="text-decoration-none">
